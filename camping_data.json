@@ -1,0 +1,39 @@
+{
+  "camps": [
+    {
+      "id": 1,
+      "name": "고래불국민야영장",
+      "description": "경상북도 영덕군 병곡면 고래불로 68<br>한달뒤 하루씩 오전 10시 오픈<br>예약후 24시간이내 입급<br>14시 입실, 13시 퇴실",
+      "reservationUrl": "https://stay.yd.go.kr/pages/sub.htm?nav_code=gor1501675800",
+      "mapImage": "map-a.jpg"
+    },
+    {
+      "id": 2,
+      "name": "빙계얼음골야영장",
+      "description": "경상북도 의성군 가음면 빙계계곡길 51<br>6주뒤 하루씩 오전 9시 오픈<br>예약후 2시간 이내 입금<br>14시 입실, 11시 퇴실",
+      "reservationUrl": "https://www.usc.go.kr/reserve/page.do?mnu_uid=2353&",
+      "mapImage": "map-b.jpg"
+    },
+    {
+      "id": 3,
+      "name": "가야산오토캠핑장",
+      "description": "경상북도 성주군 가천면 동신로 33<br>매월 2일 오전 10시 오픈(익월 말일까지 예약 가능)<br>예약후 3시간 이내 입금<br>14시 입실, 12시 퇴실",
+      "reservationUrl": "https://www.sj.go.kr/gayasan/camping/page.do?mnu_uid=4116&",
+      "mapImage": "map-c.jpg"
+    },
+    {
+      "id": 4,
+      "name": "거창국민여가캠핑장",
+      "description": "경상남도 거창군 북상면 덕유월성로 1312-96<br>한달뒤 2주씩 오전9시 오픈 (매월 1일, 16일)<br>예약후 6시간 이내 입금<br>14시 입실, 11시 퇴실",
+      "reservationUrl": "https://camp.xticket.kr/web/main?shopEncode=7d456c3a4660b3937f3754782aa44573619dd3a43724c5d60e4bb11348213714",
+      "mapImage": "map-d.jpg"
+    },
+    {
+      "id": 5,
+      "name": "전투전승기념공원 캠핑장",
+      "description": "대구광역시 군위군 삼국유사면 동부로 81<br>2달씩 오픈이라는데 명확하지 않음<br>예약후 24시간 이내 입금<br>13시입실, 12시 퇴실",
+      "reservationUrl": "http://gwp.hana-pnc.co.kr/yeyak",
+      "mapImage": "map-e.jpg"
+    }
+  ]
+}

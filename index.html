@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>캠핑장 모음</title>
+<style>
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+h1 { 
+  text-align: center; 
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-size: 2.2em;
+}
+
+.camp-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.camp {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.camp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.camp-btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 18px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  margin-bottom: 15px;
+  transition: background 0.3s, transform 0.1s;
+}
+
+.camp-btn:hover { 
+  background: #45a049;
+  transform: translateY(-1px);
+}
+
+.camp-btn:active {
+  transform: translateY(0);
+}
+
+.camp-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+  text-align: left;
+  margin-bottom: 15px;
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 4px solid #4CAF50;
+}
+
+.camp-info {
+  display: none;
+  margin-top: 15px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.camp-info a,
+.camp-info button {
+  display: block;
+  margin: 8px auto;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  width: calc(100% - 32px);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.camp-info a {
+  background: #2196F3;
+  color: white;
+}
+
+.camp-info a:hover { 
+  background: #1976D2;
+  transform: translateY(-1px);
+}
+
+.camp-info button {
+  background: #FF9800;
+  color: white;
+  border: none;
+}
+
+.camp-info button:hover { 
+  background: #FB8C00;
+  transform: translateY(-1px);
+}
+
+/* 모달 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; 
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  max-height: 80%;
+  overflow: auto;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.close-btn {
+  margin-top: 15px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #c0392b;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .camp-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  h1 {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 600px) {
+  .camp-list {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .camp {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+  }
+  
+  body {
+    padding: 15px;
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>캠핑장 모음</h1>
+<div id="camp-list" class="camp-list">
+  <!-- 캠핑장 데이터가 JavaScript로 동적 생성됩니다 -->
+</div>
+
+<!-- 지도 모달 -->
+<div id="mapModal" class="modal">
+  <div class="modal-content">
+    <img id="mapImage" src="" alt="캠핑장 지도">
+    <br>
+    <button class="close-btn" onclick="closeMap()">닫기</button>
+  </div>
+</div>
+
+<script>
+let campingData = { camps: [] }; // 전역 변수로 데이터 저장
+
+// 외부 JSON 파일에서 데이터 로드
+async function loadCampingData() {
+  try {
+    const response = await fetch('camping_data.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    campingData = await response.json();
+    renderCamps();
+  } catch (error) {
+    console.error('캠핑 데이터 로드 실패:', error);
+    
+    // JSON 파일이 없을 경우 기본 데이터 사용
+    campingData = {
+      "camps": [
+        {
+          "id": 1,
+          "name": "고래불국민야영장",
+          "description": "경상북도 영덕군 병곡면 고래불로 68<br>한달뒤 하루씩 오전 10시 오픈<br>예약후 24시간이내 입급<br>14시 입실, 13시 퇴실",
+          "reservationUrl": "https://stay.yd.go.kr/pages/sub.htm?nav_code=gor1501675800",
+          "mapImage": "map-a.jpg"
+        },
+        {
+          "id": 2,
+          "name": "빙계얼음골야영장",
+          "description": "경상북도 의성군 가음면 빙계계곡길 51<br>6주뒤 하루씩 오전 9시 오픈<br>예약후 2시간 이내 입금<br>14시 입실, 11시 퇴실",
+          "reservationUrl": "https://www.usc.go.kr/reserve/page.do?mnu_uid=2353&",
+          "mapImage": "map-b.jpg"
+        },
+        {
+          "id": 3,
+          "name": "가야산오토캠핑장",
+          "description": "경상북도 성주군 가천면 동신로 33<br>매월 2일 오전 10시 오픈(익월 말일까지 예약 가능)<br>예약후 3시간 이내 입금<br>14시 입실, 12시 퇴실",
+          "reservationUrl": "https://www.sj.go.kr/gayasan/camping/page.do?mnu_uid=4116&",
+          "mapImage": "map-c.jpg"
+        },
+        {
+          "id": 4,
+          "name": "거창국민여가캠핑장",
+          "description": "경상남도 거창군 북상면 덕유월성로 1312-96<br>한달뒤 2주씩 오전9시 오픈 (매월 1일, 16일)<br>예약후 6시간 이내 입금<br>14시 입실, 11시 퇴실",
+          "reservationUrl": "https://camp.xticket.kr/web/main?shopEncode=7d456c3a4660b3937f3754782aa44573619dd3a43724c5d60e4bb11348213714",
+          "mapImage": "map-d.jpg"
+        },
+        {
+          "id": 5,
+          "name": "전투전승기념공원 캠핑장",
+          "description": "대구광역시 군위군 삼국유사면 동부로 81<br>2달씩 오픈이라는데 명확하지 않음<br>예약후 24시간 이내 입금<br>13시입실, 12시 퇴실",
+          "reservationUrl": "http://gwp.hana-pnc.co.kr/yeyak",
+          "mapImage": "map-e.jpg"
+        }
+      ]
+    };
+    
+    renderCamps();
+    showMessage('JSON 파일을 찾을 수 없어 기본 데이터를 사용합니다.', 'warning');
+  }
+}
+
+// 메시지 표시 함수
+function showMessage(message, type = 'info') {
+  const messageDiv = document.createElement('div');
+  messageDiv.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 2000;
+    max-width: 300px;
+    animation: slideIn 0.3s ease-out;
+  `;
+  
+  // 메시지 타입에 따른 색상 설정
+  const colors = {
+    'info': '#2196F3',
+    'success': '#4CAF50',
+    'warning': '#FF9800',
+    'error': '#f44336'
+  };
+  
+  messageDiv.style.backgroundColor = colors[type] || colors['info'];
+  messageDiv.textContent = message;
+  
+  // 애니메이션 스타일 추가
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  `;
+  document.head.appendChild(style);
+  
+  document.body.appendChild(messageDiv);
+  
+  // 3초 후 자동 제거
+  setTimeout(() => {
+    messageDiv.remove();
+  }, 3000);
+}
+
+// 캠핑장 카드 생성 함수
+function createCampCard(camp) {
+  return `
+    <div class="camp" data-camp-id="${camp.id}">
+      <button class="camp-btn" onclick="toggleInfo(this)">${camp.name}</button>
+      <div class="camp-desc">
+        ${camp.description}
+      </div>
+      <div class="camp-info">
+        <a href="${camp.reservationUrl}" target="_blank">예약 사이트</a>
+        <button onclick="openMap('${camp.mapImage}')">지도 보기</button>
+      </div>
+    </div>
+  `;
+}
+
+// 캠핑장 목록 렌더링
+function renderCamps() {
+  const campList = document.getElementById('camp-list');
+  
+  if (campingData.camps.length === 0) {
+    campList.innerHTML = '<p style="text-align: center; color: #666; font-size: 18px; margin-top: 50px;">캠핑장 데이터가 없습니다.</p>';
+    return;
+  }
+  
+  const campsHTML = campingData.camps.map(camp => createCampCard(camp)).join('');
+  campList.innerHTML = campsHTML;
+}
+
+// 페이지 로드시 데이터 로드
+document.addEventListener('DOMContentLoaded', function() {
+  loadCampingData();
+});
+
+// 데이터 새로고침
+function refreshData() {
+  showMessage('데이터를 새로고침 중입니다...', 'info');
+  loadCampingData();
+}
+
+// 캠핑장 정보 토글
+function toggleInfo(button) {
+  const camp = button.parentElement;
+  const info = camp.querySelector('.camp-info');
+  
+  if (info.style.display === "block") {
+    info.style.display = "none";
+  } else {
+    info.style.display = "block";
+  }
+}
+
+// 지도 모달 열기
+function openMap(imgSrc) {
+  document.getElementById("mapImage").src = imgSrc;
+  document.getElementById("mapModal").style.display = "flex";
+}
+
+// 지도 모달 닫기
+function closeMap() {
+  document.getElementById("mapModal").style.display = "none";
+}
+
+// 모달 배경 클릭시 닫기
+document.getElementById("mapModal").addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeMap();
+  }
+});
+
+// 새 캠핑장 추가 함수 (관리용)
+function addNewCamp(name, description, reservationUrl, mapImage) {
+  const newId = Math.max(...campingData.camps.map(camp => camp.id), 0) + 1;
+  const newCamp = {
+    id: newId,
+    name: name,
+    description: description,
+    reservationUrl: reservationUrl,
+    mapImage: mapImage
+  };
+  
+  campingData.camps.push(newCamp);
+  renderCamps();
+  showMessage('새 캠핑장이 추가되었습니다.', 'success');
+}
+
+// 캠핑장 삭제 함수 (관리용)
+function deleteCamp(campId) {
+  const initialLength = campingData.camps.length;
+  campingData.camps = campingData.camps.filter(camp => camp.id !== campId);
+  
+  if (campingData.camps.length < initialLength) {
+    renderCamps();
+    showMessage('캠핑장이 삭제되었습니다.', 'success');
+  } else {
+    showMessage('해당 캠핑장을 찾을 수 없습니다.', 'error');
+  }
+}
+
+// JSON 데이터 내보내기 (관리용)
+function exportCampData() {
+  const dataStr = JSON.stringify(campingData, null, 2);
+  const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+  
+  const exportFileDefaultName = 'camping_data.json';
+  
+  const linkElement = document.createElement('a');
+  linkElement.setAttribute('href', dataUri);
+  linkElement.setAttribute('download', exportFileDefaultName);
+  linkElement.click();
+  
+  showMessage('JSON 파일이 다운로드되었습니다.', 'success');
+}
+
+// JSON 파일 업로드 함수 (관리용)
+function uploadCampData(event) {
+  const file = event.target.files[0];
+  if (file && file.type === "application/json") {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const jsonData = JSON.parse(e.target.result);
+        if (jsonData.camps && Array.isArray(jsonData.camps)) {
+          campingData = jsonData;
+          renderCamps();
+          showMessage('JSON 파일이 성공적으로 로드되었습니다.', 'success');
+        } else {
+          throw new Error('올바르지 않은 JSON 구조입니다.');
+        }
+      } catch (error) {
+        showMessage('JSON 파일 형식이 올바르지 않습니다.', 'error');
+      }
+    };
+    reader.readAsText(file);
+  } else {
+    showMessage('JSON 파일만 업로드 가능합니다.', 'error');
+  }
+}
+</script>
+
+</body>
+</html>
