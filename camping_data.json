@@ -5,6 +5,7 @@
       "name": "고래불국민야영장",
       "description": "경상북도 영덕군 병곡면 고래불로 68<br>한달뒤 하루씩 오전 10시 오픈<br>예약후 24시간이내 입급<br>14시 입실, 13시 퇴실",
       "reservationUrl": "https://stay.yd.go.kr/pages/sub.htm?nav_code=gor1501675800",
+      "weatherUrl": "https://weather.naver.com/today/04770370",
       "mapImage": "map-a.jpg"
     },
     {
@@ -12,6 +13,7 @@
       "name": "빙계얼음골야영장",
       "description": "경상북도 의성군 가음면 빙계계곡길 51<br>6주뒤 하루씩 오전 9시 오픈<br>예약후 2시간 이내 입금<br>14시 입실, 11시 퇴실",
       "reservationUrl": "https://www.usc.go.kr/reserve/page.do?mnu_uid=2353&",
+      "weatherUrl": "https://weather.naver.com/today/04730360",
       "mapImage": "map-b.jpg"
     },
     {
@@ -19,6 +21,7 @@
       "name": "가야산오토캠핑장",
       "description": "경상북도 성주군 가천면 동신로 33<br>매월 2일 오전 10시 오픈(익월 말일까지 예약 가능)<br>예약후 3시간 이내 입금<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.sj.go.kr/gayasan/camping/page.do?mnu_uid=4116&",
+      "weatherUrl": "https://weather.naver.com/today/04840340",
       "mapImage": "map-c.jpg"
     },
     {
@@ -26,6 +29,7 @@
       "name": "거창국민여가캠핑장",
       "description": "경상남도 거창군 북상면 덕유월성로 1312-96<br>한달뒤 2주씩 오전9시 오픈 (매월 1일, 16일)<br>예약후 6시간 이내 입금<br>14시 입실, 11시 퇴실",
       "reservationUrl": "https://camp.xticket.kr/web/main?shopEncode=7d456c3a4660b3937f3754782aa44573619dd3a43724c5d60e4bb11348213714",
+      "weatherUrl": "https://weather.naver.com/today/03880340",
       "mapImage": "map-d.gif"
     },
     {
@@ -33,13 +37,15 @@
       "name": "전투전승기념공원 캠핑장",
       "description": "대구광역시 군위군 삼국유사면 동부로 81<br>2달씩 오픈이라는데 명확하지 않음<br>예약후 24시간 이내 입금<br>13시입실, 12시 퇴실",
       "reservationUrl": "http://gwp.hana-pnc.co.kr/yeyak",
+      "weatherUrl": "https://weather.naver.com/today/06720370",
       "mapImage": "map-e.png"
     },
     {
       "id": 6,
       "name": "구미캠핑장",
-      "description": "경상북도 구미시 체육공원안길 34<br>한달뒤 2주씩 오전9시 오픈 (매월 1일, 16일)<br>예약후 다음 날 자정까지 결제<br>14시 입실, 11시 퇴실",
+      "description": "경상북도 구미시 낙동제방길 200<br>한달뒤 2주씩 오전9시 오픈 (매월 1일, 16일)<br>예약후 다음 날 자정까지 결제<br>14시 입실, 11시 퇴실",
       "reservationUrl": "https://gmcamping.moonhwain.net:451/rsvc/rsv_srm.html?b_id=gmcamp&q=",
+      "weatherUrl": "https://weather.naver.com/today/04190126",
       "mapImage": "map-f.jpg"
     },
     {
@@ -47,6 +53,7 @@
       "name": "대가야체험캠프",
       "description": "경북 고령군 대가야읍 신남로 61<br>두달뒤 한달씩 오픈 추정, 오픈날짜 시간 불명<br>예약후 입금시간 불명<br>13시 입실, 12시 퇴실",
       "reservationUrl": "http://www.daegayacamp.com/sub/sub3_2.php?code=H01&sdate=2025-09-23&bak=1",
+      "weatherUrl": "https://weather.naver.com/today/04830253",
       "mapImage": "map-g.jpg"
     },
     {
@@ -54,6 +61,7 @@
       "name": "삼강나루캠핑장",
       "description": "경북 예천군 풍양면 삼강리길 47-14<br>한달뒤 하루씩 자정(0시) 오픈 <br>예약후 4시간 이내 입금<br>14시 입실, 11시 퇴실",
       "reservationUrl": "https://booking.ddnayo.com/booking-calendar-status?accommodationId=13543",
+      "weatherUrl": "https://weather.naver.com/today/04900410",
       "mapImage": "map-h.jpg"
     },
     {
@@ -61,6 +69,7 @@
       "name": "보현산별빛테마마을야영장",
       "description": "경상북도 영천시 화북면 정각길 703<br>인터파크예약,오픈 시점 불명<br>예약후 6시간 이내 입금<br>15시 입실, 12시 퇴실",
       "reservationUrl": "https://tickets.interpark.com/goods/18012813",
+      "weatherUrl": "https://weather.naver.com/today/04230340",
       "mapImage": "map-i.jpg"
     },
     {
@@ -68,10 +77,12 @@
       "name": "펀펀오토캠핑장",
       "description": "경북 상주시 화서면 문장로 425-5<br>한달뒤 하루씩 자정(0시) 오픈 <br>예약후 12시간 이내 입금<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.xn--vk5bo1af7m09cs0ca273a.com/camping/reserve.html?pid=25",
+      "weatherUrl": "https://weather.naver.com/today/04250410",
       "mapImage": "map-j.jpg"
     }
   ]
 }
+
 
 
 
