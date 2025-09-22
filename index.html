@@ -28,6 +28,43 @@ h1 {
   margin: 0 auto;
   padding: 0 10px;
 }
+.btn-detail {
+  font-size: 0.8em;
+  color: #777;
+  margin-left: 6px;
+}
+.notice {
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  padding: 15px 20px;
+  background: #fff8e1;
+  border: 1px solid #f0d48c;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.notice h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.4em;
+  color: #e67e22;
+}
+
+.notice p {
+  margin: 4px 0;
+  font-size: 1em;
+  color: #444;
+}
+.weather-btn {
+  background: #6c5ce7;
+  color: white;
+  text-align: center;
+}
+
+.weather-btn:hover {
+  background: #5a4bcf;
+  transform: translateY(-1px);
+}
 
 .camp {
   background: white;
@@ -208,6 +245,12 @@ h1 {
 </head>
 <body>
 
+<div class="notice">
+  <h2>다음 단체 캠핑 일정</h2>
+  <p>9월 26~29일 가야산오토캠핑장 A3, A4</p>
+  <p>10월 8~11일 무창포오토캠핑장 A9, A13</p>
+</div>
+
 <h1>캠핑장 모음</h1>
 <div id="camp-list" class="camp-list">
   <!-- 캠핑장 데이터가 JavaScript로 동적 생성됩니다 -->
@@ -245,35 +288,40 @@ async function loadCampingData() {
           "name": "고래불국민야영장",
           "description": "경상북도 영덕군 병곡면 고래불로 68<br>한달뒤 하루씩 오전 10시 오픈<br>예약후 24시간이내 입급<br>14시 입실, 13시 퇴실",
           "reservationUrl": "https://stay.yd.go.kr/pages/sub.htm?nav_code=gor1501675800",
-          "mapImage": "map-a.png"
+          "weatherUrl": "https://weather.naver.com/today/04770370",
+          "mapImage": "map-a.jpg"
         },
         {
           "id": 2,
           "name": "빙계얼음골야영장",
           "description": "경상북도 의성군 가음면 빙계계곡길 51<br>6주뒤 하루씩 오전 9시 오픈<br>예약후 2시간 이내 입금<br>14시 입실, 11시 퇴실",
           "reservationUrl": "https://www.usc.go.kr/reserve/page.do?mnu_uid=2353&",
-          "mapImage": "map-b.jpg"
+          "weatherUrl": "https://weather.naver.com/today/04730360",
+          "mapImage": "map-b.png"
         },
         {
-          "id": 3,
+          "id": 300,
           "name": "가야산오토캠핑장",
           "description": "경상북도 성주군 가천면 동신로 33<br>매월 2일 오전 10시 오픈(익월 말일까지 예약 가능)<br>예약후 3시간 이내 입금<br>14시 입실, 12시 퇴실",
           "reservationUrl": "https://www.sj.go.kr/gayasan/camping/page.do?mnu_uid=4116&",
-          "mapImage": "map-c.jpg"
+          "weatherUrl": "https://weather.naver.com/today/04840340",
+          "mapImage": "map-c.png"
         },
         {
           "id": 4,
           "name": "거창국민여가캠핑장",
           "description": "경상남도 거창군 북상면 덕유월성로 1312-96<br>한달뒤 2주씩 오전9시 오픈 (매월 1일, 16일)<br>예약후 6시간 이내 입금<br>14시 입실, 11시 퇴실",
           "reservationUrl": "https://camp.xticket.kr/web/main?shopEncode=7d456c3a4660b3937f3754782aa44573619dd3a43724c5d60e4bb11348213714",
-          "mapImage": "map-d.jpg"
+          "weatherUrl": "https://weather.naver.com/today/03880340",
+          "mapImage": "map-d.png"
         },
         {
           "id": 5,
           "name": "전투전승기념공원 캠핑장",
           "description": "대구광역시 군위군 삼국유사면 동부로 81<br>2달씩 오픈이라는데 명확하지 않음<br>예약후 24시간 이내 입금<br>13시입실, 12시 퇴실",
           "reservationUrl": "http://gwp.hana-pnc.co.kr/yeyak",
-          "mapImage": "map-e.jpg"
+          "weatherUrl": "https://weather.naver.com/today/06720370",
+          "mapImage": "map-e.png"
         }
       ]
     };
@@ -328,34 +376,59 @@ function showMessage(message, type = 'info') {
   }, 3000);
 }
 
+
 // 캠핑장 카드 생성 함수
 function createCampCard(camp) {
+  const weatherLink = camp.weatherUrl || "https://weather.naver.com/";
+
   return `
     <div class="camp" data-camp-id="${camp.id}">
-      <button class="camp-btn" onclick="toggleInfo(this)">${camp.name}</button>
-      <div class="camp-desc">
-        ${camp.description}
-      </div>
+      <button class="camp-btn" onclick="toggleInfo(this)">
+        ${camp.name} <span class="btn-detail">자세히</span>
+      </button>
       <div class="camp-info">
+        <div class="camp-desc">
+          ${camp.description}
+        </div>
         <a href="${camp.reservationUrl}" target="_blank">예약 사이트</a>
         <button onclick="openMap('${camp.mapImage}')">지도 보기</button>
+        <a href="${weatherLink}" target="_blank" class="weather-btn">날씨 보기</a>
       </div>
     </div>
   `;
 }
 
-// 캠핑장 목록 렌더링
+
+
+// 캠핑장 정보 토글
+function toggleInfo(button) {
+  const camp = button.parentElement;
+  const info = camp.querySelector('.camp-info');
+  
+  if (info.style.display === "block") {
+    info.style.display = "none";
+  } else {
+    info.style.display = "block";
+  }
+}
+
+
+// 캠핑장 목록 렌더링 (id 기준 정렬)
 function renderCamps() {
   const campList = document.getElementById('camp-list');
-  
+
   if (campingData.camps.length === 0) {
     campList.innerHTML = '<p style="text-align: center; color: #666; font-size: 18px; margin-top: 50px;">캠핑장 데이터가 없습니다.</p>';
     return;
   }
-  
-  const campsHTML = campingData.camps.map(camp => createCampCard(camp)).join('');
+
+  // id 기준으로 정렬 (작은 숫자 → 큰 숫자)
+  const sortedCamps = [...campingData.camps].sort((a, b) => a.id - b.id);
+
+  const campsHTML = sortedCamps.map(camp => createCampCard(camp)).join('');
   campList.innerHTML = campsHTML;
 }
+
 
 // 페이지 로드시 데이터 로드
 document.addEventListener('DOMContentLoaded', function() {
@@ -469,5 +542,4 @@ function uploadCampData(event) {
 </script>
 
 </body>
-
 </html>
