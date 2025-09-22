@@ -1,7 +1,7 @@
 {
   "camps": [
     {
-      "id": 1,
+      "id": 11,
       "name": "고래불국민야영장",
       "description": "경상북도 영덕군 병곡면 고래불로 68<br>한달뒤 하루씩 오전 10시 오픈<br>예약후 24시간이내 입급<br>14시 입실, 13시 퇴실",
       "reservationUrl": "https://stay.yd.go.kr/pages/sub.htm?nav_code=gor1501675800",
@@ -9,7 +9,7 @@
       "mapImage": "map-a.jpg"
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "빙계얼음골야영장",
       "description": "경상북도 의성군 가음면 빙계계곡길 51<br>6주뒤 하루씩 오전 9시 오픈<br>예약후 2시간 이내 입금<br>14시 입실, 11시 퇴실",
       "reservationUrl": "https://www.usc.go.kr/reserve/page.do?mnu_uid=2353&",
@@ -17,7 +17,7 @@
       "mapImage": "map-b.jpg"
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "가야산오토캠핑장",
       "description": "경상북도 성주군 가천면 동신로 33<br>매월 2일 오전 10시 오픈(익월 말일까지 예약 가능)<br>예약후 3시간 이내 입금<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.sj.go.kr/gayasan/camping/page.do?mnu_uid=4116&",
@@ -73,6 +73,14 @@
       "mapImage": "map-i.jpg"
     },
     {
+      "id": 2,
+      "name": "무창포오토캠핑장",
+      "description": "충청남도 보령시 웅천읍 관당리 806-9번지<br>인터파크예약,오픈 시점 불명<br>예약후 6시간 이내 입금<br>11시 입실, 11시 퇴실",
+      "reservationUrl": "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EB%AC%B4%EC%B0%BD%ED%8F%AC+%EC%98%A4%ED%86%A0%EC%BA%A0%ED%95%91%EC%9E%A5+%EC%98%88%EC%95%BD&ackey=sbl442ja",
+      "weatherUrl": "https://weather.naver.com/today/15180250",
+      "mapImage": "map-k.jpg"
+    },    
+    {
       "id": 10,
       "name": "펀펀오토캠핑장",
       "description": "경북 상주시 화서면 문장로 425-5<br>한달뒤 하루씩 자정(0시) 오픈 <br>예약후 12시간 이내 입금<br>14시 입실, 12시 퇴실",
@@ -82,6 +90,7 @@
     }
   ]
 }
+
 
 
 
