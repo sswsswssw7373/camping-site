@@ -17,7 +17,7 @@
       "mapImage": "map-b.jpg"
     },
     {
-      "id": 2,
+      "id": 1,
       "name": "가야산오토캠핑장",
       "description": "경상북도 성주군 가천면 동신로 33<br>매월 2일 오전 10시 오픈(익월 말일까지 예약 가능)<br>예약후 3시간 이내 입금<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.sj.go.kr/gayasan/camping/page.do?mnu_uid=4116&",
@@ -90,6 +90,7 @@
     }
   ]
 }
+
 
 
 
