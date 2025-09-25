@@ -19,7 +19,7 @@
     {
       "id": 1,
       "name": "가야산오토캠핑장",
-      "description": "경상북도 성주군 가천면 동신로 33<br>매월 2일 오전 10시 오픈(익월 말일까지 예약 가능)<br>예약후 3시간 이내 입금<br>14시 입실, 12시 퇴실",
+      "description": "경상북도 성주군 가천면 동신로 33<br>매월 2일 오전 10시 오픈(익월 말일까지 예약 가능)<br>예약후 3시간 이내 입금, 전기떨어짐<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.sj.go.kr/gayasan/camping/page.do?mnu_uid=4116&",
       "weatherUrl": "https://weather.naver.com/today/04840340",
       "mapImage": "map-c.jpg"
@@ -35,7 +35,7 @@
     {
       "id": 5,
       "name": "전투전승기념공원 캠핑장",
-      "description": "대구광역시 군위군 삼국유사면 동부로 81<br>2달씩 오픈이라는데 명확하지 않음<br>예약후 24시간 이내 입금<br>13시입실, 12시 퇴실",
+      "description": "대구광역시 군위군 삼국유사면 동부로 81<br>2달씩 오픈이라는데 명확하지 않음<br>예약후 24시간 이내 입금, 전기떨어짐<br>13시입실, 12시 퇴실",
       "reservationUrl": "http://gwp.hana-pnc.co.kr/yeyak",
       "weatherUrl": "https://weather.naver.com/today/06720370",
       "mapImage": "map-e.png"
@@ -51,7 +51,7 @@
     {
       "id": 7,
       "name": "대가야체험캠프",
-      "description": "경북 고령군 대가야읍 신남로 61<br>두달뒤 한달씩 오픈 추정, 오픈날짜 시간 불명<br>예약후 입금시간 불명<br>13시 입실, 12시 퇴실",
+      "description": "경북 고령군 대가야읍 신남로 61<br>두달뒤 한달씩 오픈 추정, 오픈날짜 시간 불명<br>예약후 입금시간 불명, 전기떨어짐<br>13시 입실, 12시 퇴실",
       "reservationUrl": "http://www.daegayacamp.com/sub/sub3_2.php?code=H01&sdate=2025-09-23&bak=1",
       "weatherUrl": "https://weather.naver.com/today/04830253",
       "mapImage": "map-g.jpg"
@@ -90,6 +90,7 @@
     }
   ]
 }
+
 
 
 
