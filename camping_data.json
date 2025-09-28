@@ -17,7 +17,7 @@
       "mapImage": "map-b.jpg"
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "가야산오토캠핑장",
       "description": "경상북도 성주군 가천면 동신로 33<br>매월 2일 오전 10시 오픈(익월 말일까지 예약 가능)<br>예약후 3시간 이내 입금, 전기떨어짐<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.sj.go.kr/gayasan/camping/page.do?mnu_uid=4116&",
@@ -73,7 +73,7 @@
       "mapImage": "map-i.jpg"
     },
     {
-      "id": 2,
+      "id": 1,
       "name": "무창포오토캠핑장",
       "description": "충청남도 보령시 웅천읍 관당리 806-9번지<br>인터파크예약,오픈 시점 불명<br>예약후 6시간 이내 입금<br>11시 입실, 11시 퇴실",
       "reservationUrl": "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EB%AC%B4%EC%B0%BD%ED%8F%AC+%EC%98%A4%ED%86%A0%EC%BA%A0%ED%95%91%EC%9E%A5+%EC%98%88%EC%95%BD&ackey=sbl442ja",
@@ -90,6 +90,7 @@
     }
   ]
 }
+
 
 
 
