@@ -9,7 +9,7 @@
       "mapImage": "map-a.jpg"
     },
     {
-      "id": 0,
+      "id": 1,
       "name": "펀펀오토캠핑장",
       "description": "경북 상주시 화서면 문장로 425-5<br>한달뒤 하루씩 자정 오픈<br>예약후 12시간내 입급<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.xn--vk5bo1af7m09cs0ca273a.com/camping/reserve.html?pid=25",
@@ -81,7 +81,7 @@
       "mapImage": "map-i.jpg"
     },
     {
-      "id": 1,
+      "id": 0,
       "name": "무창포오토캠핑장",
       "description": "충청남도 보령시 웅천읍 관당리 806-9번지<br>인터파크예약,오픈 시점 불명<br>예약후 6시간 이내 입금<br>11시 입실, 11시 퇴실",
       "reservationUrl": "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EB%AC%B4%EC%B0%BD%ED%8F%AC+%EC%98%A4%ED%86%A0%EC%BA%A0%ED%95%91%EC%9E%A5+%EC%98%88%EC%95%BD&ackey=sbl442ja",
@@ -98,6 +98,7 @@
     }
   ]
 }
+
 
 
 
