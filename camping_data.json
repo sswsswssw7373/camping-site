@@ -9,6 +9,13 @@
       "mapImage": "map-a.jpg"
     },
     {
+      "id": 0,
+      "name": "펀펀오토캠핑장",
+      "description": "경북 상주시 화서면 문장로 425-5<br>한달뒤 하루씩 자정 오픈<br>예약후 12시간내 입급<br>14시 입실, 12시 퇴실",
+      "reservationUrl": "https://www.xn--vk5bo1af7m09cs0ca273a.com/camping/reserve.html?pid=25",
+      "mapImage": "map-k.jpg"
+    },
+    {
       "id": 3,
       "name": "빙계얼음골야영장",
       "description": "경상북도 의성군 가음면 빙계계곡길 51<br>6주뒤 하루씩 오전 9시 오픈<br>예약후 2시간 이내 입금<br>14시 입실, 11시 퇴실",
@@ -90,6 +97,7 @@
     }
   ]
 }
+
 
 
 
