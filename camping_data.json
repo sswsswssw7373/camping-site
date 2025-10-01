@@ -5,7 +5,7 @@
       "name": "고래불국민야영장",
       "description": "경상북도 영덕군 병곡면 고래불로 68<br>한달뒤 하루씩 오전 10시 오픈<br>예약후 24시간이내 입급<br>14시 입실, 13시 퇴실",
       "reservationUrl": "https://stay.yd.go.kr/pages/sub.htm?nav_code=gor1501675800",
-      "weatherUrl": "https://weather.naver.com/today/04770370",
+      "weatherUrl": "https://www.windy.com/36.592/129.392?36.580,129.375,5",
       "mapImage": "map-a.jpg"
     },
     {
@@ -21,7 +21,7 @@
       "name": "빙계얼음골야영장",
       "description": "경상북도 의성군 가음면 빙계계곡길 51<br>6주뒤 하루씩 오전 9시 오픈<br>예약후 2시간 이내 입금<br>14시 입실, 11시 퇴실",
       "reservationUrl": "https://www.usc.go.kr/reserve/page.do?mnu_uid=2353&",
-      "weatherUrl": "https://weather.naver.com/today/04730360",
+      "weatherUrl": "https://www.windy.com/36.226/128.735?36.227,128.716,5",
       "mapImage": "map-b.jpg"
     },
     {
@@ -29,7 +29,7 @@
       "name": "가야산오토캠핑장",
       "description": "경상북도 성주군 가천면 동신로 33<br>매월 2일 오전 10시 오픈(익월 말일까지 예약 가능)<br>예약후 3시간 이내 입금, 전기떨어짐<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.sj.go.kr/gayasan/camping/page.do?mnu_uid=4116&",
-      "weatherUrl": "https://weather.naver.com/today/04840340",
+      "weatherUrl": "https://www.windy.com/35.867/128.140?35.907,128.145,5",
       "mapImage": "map-c.jpg"
     },
     {
@@ -98,6 +98,7 @@
     }
   ]
 }
+
 
 
 
