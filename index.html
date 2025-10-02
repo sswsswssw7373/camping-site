@@ -376,10 +376,10 @@ function showMessage(message, type = 'info') {
   }, 3000);
 }
 
-
-// 캠핑장 카드 생성 함수
+<!-- 기존 createCampCard 함수 수정 -->
 function createCampCard(camp) {
-  const weatherLink = camp.weatherUrl || "https://weather.naver.com/";
+  const weatherLink1 = camp.weatherUrl || "https://weather.naver.com/";
+  const weatherLink2 = camp.weatherUrl2 || null;
 
   return `
     <div class="camp" data-camp-id="${camp.id}">
@@ -392,7 +392,10 @@ function createCampCard(camp) {
         </div>
         <a href="${camp.reservationUrl}" target="_blank">예약 사이트</a>
         <button onclick="openMap('${camp.mapImage}')">배치도 보기</button>
-        <a href="${weatherLink}" target="_blank" class="weather-btn">날씨 보기</a>
+        <div style="display:flex; gap:6px; justify-content:center;">
+          <a href="${weatherLink1}" target="_blank" class="weather-btn" style="flex:1;">날씨 보기</a>
+          ${weatherLink2 ? `<a href="${weatherLink2}" target="_blank" class="weather-btn" style="flex:1; background:#00b894;">날씨 보기2</a>` : ''}
+        </div>
       </div>
     </div>
   `;
@@ -548,6 +551,7 @@ function uploadCampData(event) {
 
 </body>
 </html>
+
 
 
 
