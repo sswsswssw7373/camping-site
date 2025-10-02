@@ -99,7 +99,31 @@ h1 {
   background: #45a049;
   transform: translateY(-1px);
 }
+/* 스타일 추가 */
+.notice-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 가운데 정렬 유지 */
+  gap: 12px;               /* 박스와 버튼 사이 간격 */
+  margin-bottom: 30px;     /* notice 여백 유지 */
+}
 
+.notice-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 0.2s;
+  height: fit-content; /* 노티스 높이에 맞추지 않고 버튼만 */
+}
+
+.notice-btn:hover {
+  background: #2980b9;
+}
 .camp-btn:active {
   transform: translateY(0);
 }
@@ -209,27 +233,7 @@ h1 {
 .close-btn:hover {
   background: #c0392b;
 }
-  /* 스타일 추가 */
-.notice-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* 가운데 정렬 유지 */
-  gap: 12px;               /* 박스와 버튼 사이 간격 */
-  margin-bottom: 30px;     /* notice 여백 유지 */
-}
-
-.notice-btn {
-  background: #3498db;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 14px;
-  transition: background 0.2s;
-  height: fit-content; /* 노티스 높이에 맞추지 않고 버튼만 */
-}
+ 
 
 .notice-btn:hover {
   background: #2980b9;
@@ -592,6 +596,7 @@ function openExtraPage() {
 
 </body>
 </html>
+
 
 
 
