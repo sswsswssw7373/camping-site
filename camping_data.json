@@ -6,6 +6,7 @@
       "description": "경상북도 영덕군 병곡면 고래불로 68<br>한달뒤 하루씩 오전 10시 오픈<br>예약후 24시간이내 입급<br>14시 입실, 13시 퇴실",
       "reservationUrl": "https://stay.yd.go.kr/pages/sub.htm?nav_code=gor1501675800",
       "weatherUrl": "https://www.windy.com/36.592/129.392?36.580,129.375,5",
+      "weatherUrl2": "https://weather.naver.com/today/04770370",
       "mapImage": "map-a.jpg"
     },
     {
@@ -14,6 +15,7 @@
       "description": "경북 상주시 화서면 문장로 425-5<br>한달뒤 하루씩 자정 오픈<br>예약후 12시간내 입급<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.xn--vk5bo1af7m09cs0ca273a.com/camping/reserve.html?pid=25",
       "weatherUrl": "https://www.windy.com/36.441/127.946?32.843,127.925,5",
+      "weatherUrl2": "https://weather.naver.com/today/04250410",
       "mapImage": "map-l.jpg"
     },
     {
@@ -22,6 +24,7 @@
       "description": "경상북도 의성군 가음면 빙계계곡길 51<br>6주뒤 하루씩 오전 9시 오픈<br>예약후 2시간 이내 입금<br>14시 입실, 11시 퇴실",
       "reservationUrl": "https://www.usc.go.kr/reserve/page.do?mnu_uid=2353&",
       "weatherUrl": "https://www.windy.com/36.226/128.735?36.227,128.716,5",
+      "weatherUrl2": "https://weather.naver.com/today/04730360",      
       "mapImage": "map-b.jpg"
     },
     {
@@ -30,6 +33,7 @@
       "description": "경상북도 성주군 가천면 동신로 33<br>매월 2일 오전 10시 오픈(익월 말일까지 예약 가능)<br>예약후 3시간 이내 입금, 전기떨어짐<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.sj.go.kr/gayasan/camping/page.do?mnu_uid=4116&",
       "weatherUrl": "https://www.windy.com/35.867/128.140?35.907,128.145,5",
+      "weatherUrl2": "https://weather.naver.com/today/04840340",
       "mapImage": "map-c.jpg"
     },
     {
@@ -38,6 +42,7 @@
       "description": "경상남도 거창군 북상면 덕유월성로 1312-96<br>한달뒤 2주씩 오전9시 오픈 (매월 1일, 16일)<br>예약후 6시간 이내 입금<br>14시 입실, 11시 퇴실",
       "reservationUrl": "https://camp.xticket.kr/web/main?shopEncode=7d456c3a4660b3937f3754782aa44573619dd3a43724c5d60e4bb11348213714",
       "weatherUrl": "https://www.windy.com/35.790/127.778?32.138,127.793,5",
+      "weatherUrl2": "https://weather.naver.com/today/03880340",
       "mapImage": "map-d.gif"
     },
     {
@@ -46,6 +51,7 @@
       "description": "대구광역시 군위군 삼국유사면 동부로 81<br>2달씩 오픈이라는데 명확하지 않음<br>예약후 24시간 이내 입금, 전기떨어짐<br>13시입실, 12시 퇴실",
       "reservationUrl": "http://gwp.hana-pnc.co.kr/yeyak",
       "weatherUrl": "https://www.windy.com/36.152/128.821?32.510,128.804,5",
+      "weatherUrl2": "https://weather.naver.com/today/06720370",
       "mapImage": "map-e.png"
     },
     {
@@ -54,6 +60,8 @@
       "description": "경상북도 구미시 낙동제방길 200<br>한달뒤 2주씩 오전9시 오픈 (매월 1일, 16일)<br>예약후 다음 날 자정까지 결제<br>14시 입실, 11시 퇴실",
       "reservationUrl": "https://gmcamping.moonhwain.net:451/rsvc/rsv_srm.html?b_id=gmcamp&q=",
       "weatherUrl": "https://www.windy.com/36.112/128.355?36.001,128.355,10",
+      "weatherUrl": "https://weather.naver.com/today/04190112",
+      
       "mapImage": "map-f.jpg"
     },
     {
@@ -62,6 +70,7 @@
       "description": "경북 고령군 대가야읍 신남로 61<br>두달뒤 한달씩 오픈 추정, 오픈날짜 시간 불명<br>예약후 입금시간 불명, 전기떨어짐<br>13시 입실, 12시 퇴실",
       "reservationUrl": "http://www.daegayacamp.com/sub/sub3_2.php?code=H01&sdate=2025-09-23&bak=1",
       "weatherUrl": "https://www.windy.com/35.732/128.257?35.621,128.257,10",
+      "weatherUrl2": "https://weather.naver.com/today/04830253",
       "mapImage": "map-g.jpg"
     },
     {
@@ -70,6 +79,7 @@
       "description": "경북 예천군 풍양면 삼강리길 47-14<br>한달뒤 하루씩 자정(0시) 오픈 <br>예약후 4시간 이내 입금<br>14시 입실, 11시 퇴실",
       "reservationUrl": "https://booking.ddnayo.com/booking-calendar-status?accommodationId=13543",
       "weatherUrl": "https://www.windy.com/34.563/127.238?34.450,127.238,10",
+      "weatherUrl2": "https://weather.naver.com/today/04900410",
       "mapImage": "map-h.jpg"
     },
     {
@@ -78,6 +88,7 @@
       "description": "경상북도 영천시 화북면 정각길 703<br>인터파크예약,오픈 시점 불명<br>예약후 6시간 이내 입금<br>15시 입실, 12시 퇴실",
       "reservationUrl": "https://tickets.interpark.com/goods/18012813",
       "weatherUrl": "https://www.windy.com/36.131/128.938?36.020,128.938,10",
+      "weatherUrl2": "https://weather.naver.com/today/04230340",
       "mapImage": "map-i.jpg"
     },
     {
@@ -86,6 +97,7 @@
       "description": "충청남도 보령시 웅천읍 관당리 806-9번지<br>인터파크예약,오픈 시점 불명<br>예약후 6시간 이내 입금<br>11시 입실, 11시 퇴실",
       "reservationUrl": "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EB%AC%B4%EC%B0%BD%ED%8F%AC+%EC%98%A4%ED%86%A0%EC%BA%A0%ED%95%91%EC%9E%A5+%EC%98%88%EC%95%BD&ackey=sbl442ja",
       "weatherUrl": "https://www.windy.com/36.334/126.613?2025-10-02-18,36.336,126.615,10",
+      "weatherUrl2": "https://weather.naver.com/today/15180250",
       "mapImage": "map-k.jpg"
     },    
     {
@@ -94,10 +106,12 @@
       "description": "경북 상주시 화서면 문장로 425-5<br>한달뒤 하루씩 자정(0시) 오픈 <br>예약후 12시간 이내 입금<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.xn--vk5bo1af7m09cs0ca273a.com/camping/reserve.html?pid=25",
       "weatherUrl": "https://www.windy.com/36.441/127.946?36.331,127.945,10",
+      "weatherUrl2": "https://weather.naver.com/today/04730360",
       "mapImage": "map-j.jpg"
     }
   ]
 }
+
 
 
 
