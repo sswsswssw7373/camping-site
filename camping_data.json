@@ -99,18 +99,10 @@
       "weatherUrl": "https://www.windy.com/36.334/126.613?2025-10-02-18,36.336,126.615,10",
       "weatherUrl2": "https://weather.naver.com/today/15180250",
       "mapImage": "map-k.jpg"
-    },    
-    {
-      "id": 10,
-      "name": "펀펀오토캠핑장",
-      "description": "경북 상주시 화서면 문장로 425-5<br>한달뒤 하루씩 자정(0시) 오픈 <br>예약후 12시간 이내 입금<br>14시 입실, 12시 퇴실",
-      "reservationUrl": "https://www.xn--vk5bo1af7m09cs0ca273a.com/camping/reserve.html?pid=25",
-      "weatherUrl": "https://www.windy.com/36.441/127.946?36.331,127.945,10",
-      "weatherUrl2": "https://weather.naver.com/today/04730360",
-      "mapImage": "map-j.jpg"
     }
   ]
 }
+
 
 
 
