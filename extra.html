@@ -3,219 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>예약 일정표</title>
+  <title>월간 일정표</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #f9fafc;
-      text-align: center;
-      padding: 10px;
-      margin: 0;
-    }
-    h1 { margin: 10px 0; font-size: 1.6em; color: #333; }
-    .controls { margin-bottom: 15px; }
-    .controls button {
-      margin: 0 5px;
-      padding: 8px 14px;
-      border: none;
-      border-radius: 6px;
-      background: #4a90e2;
-      color: white;
-      cursor: pointer;
-      font-size: 0.9em;
-    }
-
-    /* 월간 달력 스타일 */
-    .calendar-month {
-      border-collapse: collapse;
+      padding: 20px;
+      max-width: 700px;
       margin: 0 auto;
-      width: 100%;
-      max-width: 900px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 1.8em;
+    }
+    .schedule {
       background: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       overflow: hidden;
     }
-    .calendar-month th {
-      background: #f1f5f9;
-      padding: 10px 0;
-      font-size: 0.9em;
-      color: #444;
+    .day {
+      padding: 14px 18px;
+      border-bottom: 1px solid #eee;
     }
-    .calendar-month td {
-      border: 1px solid #eee;
-      width: 14.28%;
-      height: 90px;
-      vertical-align: top;
-      padding: 4px;
-      font-size: 0.85em;
+    .day:last-child { border-bottom: none; }
+    .day .date {
+      font-weight: bold;
+      color: #333;
+      display: inline-block;
+      min-width: 50px;
     }
-    .calendar-month td .date { font-weight: bold; }
     .event {
-      display: block;
+      margin-left: 8px;
       background: #4a90e2;
       color: white;
-      font-size: 0.7em;
-      padding: 2px 4px;
+      display: inline-block;
+      padding: 3px 8px;
       border-radius: 4px;
-      margin-top: 2px;
-      text-align: left;
-      word-break: break-word;
-    }
-    .today {
-      background: #fff4e0 !important;
-      border: 2px solid #ff9f1c;
+      font-size: 0.9em;
     }
 
-    /* 📱 휴대폰 전용 주간 리스트 */
-    .calendar-week {
-      display: none;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    .week-day {
-      background: white;
-      margin: 6px 0;
-      padding: 10px;
-      border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      text-align: left;
-    }
-    .week-day .date { font-weight: bold; margin-bottom: 4px; }
-    .week-day .event { margin-top: 4px; }
-
-    /* 반응형 전환 */
+    /* 📱 작은 화면 (휴대폰) */
     @media (max-width: 600px) {
-      .calendar-month { display: none; }
-      .calendar-week { display: block; }
-      h1 { font-size: 1.3em; }
-      .controls button { font-size: 0.8em; padding: 6px 10px; }
+      body { padding: 10px; }
+      h1 { font-size: 1.4em; }
+      .day { padding: 10px; font-size: 0.9em; }
+      .day .date { min-width: 40px; font-size: 0.95em; }
+      .event { font-size: 0.8em; padding: 2px 6px; }
+    }
+
+    /* 📲 중간 화면 (태블릿) */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      body { padding: 15px; }
+      h1 { font-size: 1.6em; }
+      .day { padding: 12px 14px; font-size: 1em; }
+      .event { font-size: 0.85em; }
+    }
+
+    /* 💻 큰 화면 (PC) */
+    @media (min-width: 1025px) {
+      h1 { font-size: 1.8em; }
+      .day { font-size: 1em; }
+      .event { font-size: 0.9em; }
     }
   </style>
 </head>
 <body>
-  <h1 id="month-year"></h1>
-  <div class="controls">
-    <button onclick="changeMonth(-1)">◀ 이전달</button>
-    <button onclick="changeMonth(1)">다음달 ▶</button>
-  </div>
-
-  <!-- 월간 달력 -->
-  <table class="calendar-month" id="calendar-month">
-    <thead>
-      <tr>
-        <th>일</th><th>월</th><th>화</th><th>수</th>
-        <th>목</th><th>금</th><th>토</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <!-- 주간 달력 (모바일 전용) -->
-  <div class="calendar-week" id="calendar-week"></div>
+  <h1>📅 이번 달 일정표</h1>
+  <div class="schedule" id="schedule"></div>
 
   <script>
-    const events = [
-      { week: 1, day: 1, text: "팀 회의" },
-      { week: 3, day: 5, text: "보고서 마감" },
-      { week: 2, day: 3, text: "부서 점검" }
-    ];
+    // 특정 일자 이벤트
+    const events = {
+      2: "가야산오토 10시",
+      1: "거창국민여가 9시,
+      16: "거창국민여가 9시",
+      21: "워크숍",
+      28: "월말 정산"
+    };
 
-    const today = new Date();
-    let currentYear = today.getFullYear();
-    let currentMonth = today.getMonth();
+    const scheduleEl = document.getElementById("schedule");
 
-    generateCalendar(currentYear, currentMonth);
+    for (let day = 1; day <= 31; day++) {
+      const dayEl = document.createElement("div");
+      dayEl.className = "day";
+      dayEl.innerHTML = `<span class="date">${day}일</span>`;
 
-    function generateCalendar(year, month) {
-      document.getElementById("month-year").innerText =
-        `${year}년 ${month + 1}월`;
-
-      generateMonthView(year, month);
-      generateWeekView(year, month);
-    }
-
-    // 월간 달력
-    function generateMonthView(year, month) {
-      const firstDay = new Date(year, month, 1);
-      const lastDay = new Date(year, month + 1, 0);
-      const startDay = firstDay.getDay();
-      const totalDays = lastDay.getDate();
-
-      const tbody = document.querySelector("#calendar-month tbody");
-      tbody.innerHTML = "";
-      let row = document.createElement("tr");
-
-      for (let i = 0; i < startDay; i++) row.appendChild(document.createElement("td"));
-
-      for (let date = 1; date <= totalDays; date++) {
-        const cell = document.createElement("td");
-        const cellDate = new Date(year, month, date);
-        cell.innerHTML = `<div class="date">${date}</div>`;
-
-        if (isToday(cellDate)) cell.classList.add("today");
-
-        addEvents(cell, date, startDay, cellDate);
-
-        row.appendChild(cell);
-        if (cellDate.getDay() === 6) { tbody.appendChild(row); row = document.createElement("tr"); }
+      if (events[day]) {
+        const eventEl = document.createElement("span");
+        eventEl.className = "event";
+        eventEl.innerText = events[day];
+        dayEl.appendChild(eventEl);
       }
 
-      if (row.children.length > 0) {
-        while (row.children.length < 7) row.appendChild(document.createElement("td"));
-        tbody.appendChild(row);
-      }
-    }
-
-    // 주간 달력 (리스트형)
-    function generateWeekView(year, month) {
-      const lastDay = new Date(year, month + 1, 0);
-      const totalDays = lastDay.getDate();
-      const weekDiv = document.getElementById("calendar-week");
-      weekDiv.innerHTML = "";
-
-      for (let date = 1; date <= totalDays; date++) {
-        const cellDate = new Date(year, month, date);
-        const div = document.createElement("div");
-        div.className = "week-day";
-        div.innerHTML = `<div class="date">${month + 1}월 ${date}일 (${["일","월","화","수","목","금","토"][cellDate.getDay()]})</div>`;
-
-        if (isToday(cellDate)) div.style.border = "2px solid #ff9f1c";
-
-        // 이벤트 추가
-        const tmp = document.createElement("div");
-        addEvents(tmp, date, (new Date(year, month, 1)).getDay(), cellDate);
-        if (tmp.innerHTML) div.appendChild(tmp);
-
-        weekDiv.appendChild(div);
-      }
-    }
-
-    function addEvents(container, date, startDay, cellDate) {
-      const weekNum = Math.ceil((date + startDay) / 7);
-      const dayOfWeek = cellDate.getDay();
-
-      events.forEach(ev => {
-        if (ev.week === weekNum && ev.day === dayOfWeek) {
-          const eventEl = document.createElement("span");
-          eventEl.className = "event";
-          eventEl.innerText = ev.text;
-          container.appendChild(eventEl);
-        }
-      });
-    }
-
-    function isToday(d) {
-      return d.getDate() === today.getDate() &&
-             d.getMonth() === today.getMonth() &&
-             d.getFullYear() === today.getFullYear();
-    }
-
-    function changeMonth(offset) {
-      currentMonth += offset;
-      if (currentMonth < 0) { currentMonth = 11; currentYear--; }
-      else if (currentMonth > 11) { currentMonth = 0; currentYear++; }
-      generateCalendar(currentYear, currentMonth);
+      scheduleEl.appendChild(dayEl);
     }
   </script>
 </body>
