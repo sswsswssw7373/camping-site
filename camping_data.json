@@ -4,7 +4,7 @@
       "id": 11,
       "name": "고래불국민야영장",
       "description": "경상북도 영덕군 병곡면 고래불로 68<br>한달뒤 하루씩 오전 10시 오픈<br>예약후 24시간이내 입급<br>14시 입실, 13시 퇴실",
-      "reservationUrl": "http://njcamping.or.kr/main/",
+      "reservationUrl": "https://stay.yd.go.kr/pages/sub.htm?nav_code=gor1501675800",
       "weatherUrl": "https://www.windy.com/36.592/129.392?36.580,129.375,5",
       "weatherUrl2": "https://weather.naver.com/today/04770370",
       "mapImage": "map-a.jpg"
@@ -13,7 +13,7 @@
       "id": 1,
       "name": "나정고운모래캠핑장",
       "description": "경상북도 경주시 감포읍 나정리 633-6<br>매월 첫 월요일 한달씩 오후 4시 오픈<br>예약후 24시간이내 입급<br>14시 입실, 12시 퇴실",
-      "reservationUrl": "경상북도 경주시 감포읍 나정리 633-6",
+      "reservationUrl": "http://njcamping.or.kr/main/",
       "weatherUrl": "https://www.windy.com/35.800/129.478?32.176,129.463,5",
       "weatherUrl2":"https://weather.naver.com/today/04130250",
       "mapImage": "map-m.jpg"
@@ -111,6 +111,7 @@
     }
   ]
 }
+
 
 
 
