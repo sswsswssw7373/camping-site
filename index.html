@@ -317,8 +317,8 @@ h1 {
 
 <!-- 비밀번호 입력창 -->
 <div class="notice" id="passwordPrompt">
-  <h2>🔐 비밀번호 입력</h2>
-  <input type="password" id="noticePassword" maxlength="4" placeholder="4자리 숫자"
+  <h2>🔐 캠핑 일정</h2>
+  <input type="password" id="noticePassword" maxlength="4" placeholder="3자리 숫자"
          style="padding:8px; font-size:1em; border-radius:6px; border:1px solid #ccc;">
   <button onclick="checkPassword()" 
           style="margin-left:8px; padding:8px 12px; border:none; background:#4CAF50; color:white; border-radius:6px; cursor:pointer;">
@@ -620,7 +620,7 @@ function checkPassword() {
   const secretNotice = document.getElementById('secretNotice');
   const passwordPrompt = document.getElementById('passwordPrompt');
 
-  if (input === '1234') { // 🔑 원하는 비밀번호로 변경 가능
+  if (input === '7323') { // 🔑 원하는 비밀번호로 변경 가능
     secretNotice.style.display = 'block';
     passwordPrompt.style.display = 'none';
     showMessage('비밀 공지가 열렸습니다.', 'success');
@@ -632,6 +632,7 @@ function checkPassword() {
 
 </body>
 </html>
+
 
 
 
