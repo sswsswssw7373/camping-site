@@ -11,6 +11,15 @@
     },
     {
       "id": 1,
+      "name": "나정고운모래캠핑장",
+      "description": "경상북도 경주시 감포읍 나정리 633-6<br>매월 첫 월요일 한달씩 오후 4시 오픈<br>예약후 24시간이내 입급<br>14시 입실, 12시 퇴실",
+      "reservationUrl": "경상북도 경주시 감포읍 나정리 633-6",
+      "weatherUrl": "https://www.windy.com/35.800/129.478?32.176,129.463,5",
+      "weatherUrl2":"https://weather.naver.com/today/04130250",
+      "mapImage": "map-m.jpg"
+    },
+    {
+      "id": 1,
       "name": "펀펀오토캠핑장",
       "description": "경북 상주시 화서면 문장로 425-5<br>한달뒤 하루씩 자정 오픈<br>예약후 12시간내 입급<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.xn--vk5bo1af7m09cs0ca273a.com/camping/reserve.html?pid=25",
@@ -102,6 +111,7 @@
     }
   ]
 }
+
 
 
 
