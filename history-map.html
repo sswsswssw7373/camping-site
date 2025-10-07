@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenStreetMap 지도 예제</title>
+
+  <!-- Leaflet CSS/JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    body { font-family: "Pretendard", sans-serif; margin:0; background:#f7f7f7; }
+    h1 { text-align:center; padding:12px 0; }
+    #map { height: 480px; width: 100%; }
+  </style>
+</head>
+<body>
+  <h1>🗺️ OpenStreetMap 마커 예제</h1>
+  <div id="map"></div>
+
+  <script>
+    const places = [
+  { name: "고래불", "lat": 36.4861, "lng": 129.3836 },
+  { name: "경주나정", "lat": 35.9042, "lng": 129.3924 },
+  { name: "펀펀", "lat": 36.4183, "lng": 128.1473 },
+  { name: "의성빙계", "lat": 36.3683, "lng": 128.5105 },
+  { name: "가야산오토", "lat": 35.9383, "lng": 128.2478 },
+  { name: "거창국민여가", "lat": 35.6947, "lng": 127.9024 },
+  { name: "구미캠핑장", "lat": 36.1183, "lng": 128.3442 },
+  { name: "고령대가야체험", "lat": 35.4944, "lng": 128.2894 },
+  { name: "예천 삼강나루", "lat": 36.6275, "lng": 128.4872 },
+  { name: "보현산별빛", "lat": 35.9889, "lng": 128.9364 },
+  { name: "무창포오토", "lat": 36.0536, "lng": 126.6233 },
+  { "name": "제주 에코그린", "lat": 33.4958, "lng": 126.3642 },
+  { "name": "진주 도토리", "lat": 35.2044, "lng": 128.0908 },
+  { "name": "양지 생태마을", "lat": 35.7383, "lng": 127.9269 },
+  { "name": "몽산포", "lat": 36.7458, "lng": 126.3025 },
+  { "name": "왕산골", "lat": 36.0769, "lng": 128.3556 },
+  { "name": "파크킹", "lat": 36.2069, "lng": 128.0872 },
+  { "name": "태백눈꽃", "lat": 37.1561, "lng": 128.9922 },
+  { "name": "송하루", "lat": 36.1372, "lng": 128.3464 },
+  { "name": "합천 소리길", "lat": 35.2783, "lng": 128.1256 },
+  { "name": "함양 라온", "lat": 35.3878, "lng": 127.7811 },
+  { "name": "숲에안기다", "lat": 35.4264, "lng": 128.3069 },
+  { "name": "돌고래", "lat": 36.4183, "lng": 128.1473 },
+  { "name": "김천 누리별", "lat": 36.2069, "lng": 128.0872 },
+  { "name": "달서별빛", "lat": 35.8461, "lng": 128.5914 },
+  { "name": "경주 문복산", "lat": 35.8333, "lng": 129.0917 },
+  { "name": "위천수변", "lat": 35.8764, "lng": 128.5797 },
+  { "name": "한티별빛", "lat": 35.9781, "lng": 128.3986 },
+  { "name": "용추그린", "lat": 35.4358, "lng": 127.8042 },
+  { "name": "합천 꿈꾸는", "lat": 35.2678, "lng": 128.0897 }
+  
+  
+    ];
+
+    // 지도 생성(구미 시청)
+    const map = L.map('map').setView([36.1239, 128.3440], 8);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // 마커 추가 및 이름 표시
+    places.forEach(p => {
+      L.marker([p.lat, p.lng])
+        .addTo(map)
+        .bindPopup(`<b>${p.name}</b>`)
+        .bindTooltip(p.name, { permanent: true, direction: "top", offset: [0, -10] });
+    });
+  </script>
+</body>
+</html>
