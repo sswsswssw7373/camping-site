@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형 달력</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9fafc;
+      text-align: center;
+      padding: 10px;
+      margin: 0;
+    }
+    h1 { margin: 10px 0; font-size: 1.6em; color: #333; }
+    .controls { margin-bottom: 15px; }
+    .controls button {
+      margin: 0 5px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      background: #4a90e2;
+      color: white;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+
+    /* 월간 달력 스타일 */
+    .calendar-month {
+      border-collapse: collapse;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 900px;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .calendar-month th {
+      background: #f1f5f9;
+      padding: 10px 0;
+      font-size: 0.9em;
+      color: #444;
+    }
+    .calendar-month td {
+      border: 1px solid #eee;
+      width: 14.28%;
+      height: 90px;
+      vertical-align: top;
+      padding: 4px;
+      font-size: 0.85em;
+    }
+    .calendar-month td .date { font-weight: bold; }
+    .event {
+      display: block;
+      background: #4a90e2;
+      color: white;
+      font-size: 0.7em;
+      padding: 2px 4px;
+      border-radius: 4px;
+      margin-top: 2px;
+      text-align: left;
+      word-break: break-word;
+    }
+    .today {
+      background: #fff4e0 !important;
+      border: 2px solid #ff9f1c;
+    }
+
+    /* 📱 휴대폰 전용 주간 리스트 */
+    .calendar-week {
+      display: none;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .week-day {
+      background: white;
+      margin: 6px 0;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+    .week-day .date { font-weight: bold; margin-bottom: 4px; }
+    .week-day .event { margin-top: 4px; }
+
+    /* 반응형 전환 */
+    @media (max-width: 600px) {
+      .calendar-month { display: none; }
+      .calendar-week { display: block; }
+      h1 { font-size: 1.3em; }
+      .controls button { font-size: 0.8em; padding: 6px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="month-year"></h1>
+  <div class="controls">
+    <button onclick="changeMonth(-1)">◀ 이전달</button>
+    <button onclick="changeMonth(1)">다음달 ▶</button>
+  </div>
+
+  <!-- 월간 달력 -->
+  <table class="calendar-month" id="calendar-month">
+    <thead>
+      <tr>
+        <th>일</th><th>월</th><th>화</th><th>수</th>
+        <th>목</th><th>금</th><th>토</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- 주간 달력 (모바일 전용) -->
+  <div class="calendar-week" id="calendar-week"></div>
+<script>
+const events = [
+  { nth: 1, weekday: 1, text: "경주 나정, +1개월" },       // 첫 번째 월요일
+/*  { nth: 2, weekday: 5, text: "보고서 마감" },   // 두 번째 금요일
+  { nth: 3, weekday: 3, text: "부서 점검" },     // 세 번째 수요일*/
+  { date: 2, text: "가야산 오토, +1개월" } ,                // 매월 3일
+    { date: 1, text: "거창 국민여가, +1개월" } ,                // 매월 1일
+      { date: 16, text: "거창 국민여가, +1개월" }                 // 매월 16일
+];
+
+  const today = new Date();
+  let currentYear = today.getFullYear();
+  let currentMonth = today.getMonth();
+  generateCalendar(currentYear, currentMonth);
+
+    function generateCalendar(year, month) {
+      document.getElementById("month-year").innerText =
+        `${year}년 ${month + 1}월`;
+
+      generateMonthView(year, month);
+      generateWeekView(year, month);
+    }
+
+    // 월간 달력
+    function generateMonthView(year, month) {
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const startDay = firstDay.getDay();
+      const totalDays = lastDay.getDate();
+
+      const tbody = document.querySelector("#calendar-month tbody");
+      tbody.innerHTML = "";
+      let row = document.createElement("tr");
+
+      for (let i = 0; i < startDay; i++) row.appendChild(document.createElement("td"));
+
+      for (let date = 1; date <= totalDays; date++) {
+        const cell = document.createElement("td");
+        const cellDate = new Date(year, month, date);
+        cell.innerHTML = `<div class="date">${date}</div>`;
+
+        if (isToday(cellDate)) cell.classList.add("today");
+
+        addEvents(cell, date, startDay, cellDate);
+
+        row.appendChild(cell);
+        if (cellDate.getDay() === 6) { tbody.appendChild(row); row = document.createElement("tr"); }
+      }
+
+      if (row.children.length > 0) {
+        while (row.children.length < 7) row.appendChild(document.createElement("td"));
+        tbody.appendChild(row);
+      }
+    }
+
+    // 주간 달력 (리스트형)
+    function generateWeekView(year, month) {
+      const lastDay = new Date(year, month + 1, 0);
+      const totalDays = lastDay.getDate();
+      const weekDiv = document.getElementById("calendar-week");
+      weekDiv.innerHTML = "";
+
+      for (let date = 1; date <= totalDays; date++) {
+        const cellDate = new Date(year, month, date);
+        const div = document.createElement("div");
+        div.className = "week-day";
+        div.innerHTML = `<div class="date">${month + 1}월 ${date}일 (${["일","월","화","수","목","금","토"][cellDate.getDay()]})</div>`;
+
+        if (isToday(cellDate)) div.style.border = "2px solid #ff9f1c";
+
+        // 이벤트 추가
+        const tmp = document.createElement("div");
+        addEvents(tmp, date, (new Date(year, month, 1)).getDay(), cellDate);
+        if (tmp.innerHTML) div.appendChild(tmp);
+
+        weekDiv.appendChild(div);
+      }
+    }
+
+function addEvents(container, date, startDay, cellDate) {
+  const dayOfWeek = cellDate.getDay();
+
+  events.forEach(ev => {
+    let show = false;
+
+    // ① 특정 날짜 기반 (예: 매월 3일)
+    if (ev.date === date) {
+      show = true;
+    }
+
+    // ② n번째 요일 기반 (예: 첫 번째 화요일)
+    if (ev.nth && ev.weekday !== undefined && dayOfWeek === ev.weekday) {
+      const firstDay = new Date(cellDate.getFullYear(), cellDate.getMonth(), 1).getDay();
+      const diff = (ev.weekday - firstDay + 7) % 7;
+      const targetDate = 1 + diff + (ev.nth - 1) * 7;
+
+      if (date === targetDate) {
+        show = true;
+      }
+    }
+
+    // 표시
+    if (show) {
+      const eventEl = document.createElement("span");
+      eventEl.className = "event";
+      eventEl.innerText = ev.text;
+      container.appendChild(eventEl);
+    }
+  });
+}
+
+
+    function isToday(d) {
+      return d.getDate() === today.getDate() &&
+             d.getMonth() === today.getMonth() &&
+             d.getFullYear() === today.getFullYear();
+    }
+
+    function changeMonth(offset) {
+      currentMonth += offset;
+      if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+      else if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+      generateCalendar(currentYear, currentMonth);
+    }
+  </script>
+</body>
+</html>
