@@ -186,6 +186,25 @@ h1 {
 .notice-btn:hover {
   background: #2980b9;
 }
+.map-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 0.2s;
+  height: fit-content; /* 노티스 높이에 맞추지 않고 버튼만 */
+}
+
+.map-btn:hover {
+  background: #2980b9;
+}
+
+
+  
 /* 모달 */
 .modal {
   display: none;
@@ -279,6 +298,7 @@ h1 {
 
   <!-- 노티스 바깥 우측 버튼 -->
   <button class="notice-btn" onclick="openExtraPage()">예약 사이트 오픈 일정</button>
+  <button class="map-btn" onclick="openHistoryMapPage()">123이지</button>
 </div>
 
 <!-- 🔒 비밀번호 보호된 공지 -->
@@ -666,15 +686,21 @@ function checkPassword() {
     showMessage('비밀번호가 틀렸습니다.', 'error');
   }
 }
-// 스크립트 부분에 추가
+
+//달력보기버튼 추가
 function openExtraPage() {
   window.open("extra.html", "_blank");  // 다른 HTML 파일명으로 교체
 }
 
+// 방문 캠핑장보기 버튼
+function openHistoryMapPage() {
+  window.open("history-map.html", "_blank");  // 다른 HTML 파일명으로 교체
+}
 </script>
 
 </body>
 </html>
+
 
 
 
