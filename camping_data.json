@@ -70,7 +70,6 @@
       "reservationUrl": "https://gmcamping.moonhwain.net:451/rsvc/rsv_srm.html?b_id=gmcamp&q=",
       "weatherUrl": "https://www.windy.com/36.112/128.355?36.001,128.355,10",
       "weatherUrl2": "https://weather.naver.com/today/04190112",
-      
       "mapImage": "map-f.jpg"
     },
     {
@@ -111,6 +110,7 @@
     }
   ]
 }
+
 
 
 
