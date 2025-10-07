@@ -163,15 +163,23 @@ h1 {
 }
 /* 스타일 추가 */
 .notice-wrapper {
+.notice-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center; /* 가운데 정렬 유지 */
-  gap: 12px;               /* 박스와 버튼 사이 간격 */
-  margin-bottom: 30px;     /* notice 여백 유지 */
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
+.button-column {
+  display: flex;
+  flex-direction: column; /* 세로 정렬 */
+  gap: 10px;              /* 버튼 간격 */
+}
+
+/* 버튼 색상 명확히 구분 */
 .notice-btn {
-  background: #3498db;
+  background: #3498db; /* 파랑 */
   color: white;
   border: none;
   padding: 10px 16px;
@@ -180,14 +188,14 @@ h1 {
   font-weight: 500;
   font-size: 14px;
   transition: background 0.2s;
-  height: fit-content; /* 노티스 높이에 맞추지 않고 버튼만 */
 }
 
 .notice-btn:hover {
   background: #2980b9;
 }
+
 .map-btn {
-  background: #3498db;
+  background: #27ae60; /* 초록 */
   color: white;
   border: none;
   padding: 10px 16px;
@@ -196,11 +204,10 @@ h1 {
   font-weight: 500;
   font-size: 14px;
   transition: background 0.2s;
-  height: fit-content; /* 노티스 높이에 맞추지 않고 버튼만 */
 }
 
 .map-btn:hover {
-  background: #2980b9;
+  background: #1e8449;
 }
 
 
@@ -288,7 +295,8 @@ h1 {
 </head>
 <body>
 
-<!-- notice 래퍼 추가 -->
+
+<!-- notice 래퍼 수정 -->
 <div class="notice-wrapper">
   <div class="notice">
     <h2>다음 단체 캠핑 일정</h2>
@@ -296,11 +304,13 @@ h1 {
     <p>10월 31~11월 1일 펀펀오토캠핑장 48, 53, 16</p>
   </div>
 
-  <!-- 노티스 바깥 우측 버튼 -->
-  <button class="notice-btn" onclick="openExtraPage()">예약 사이트 오픈 일정</button>
-  <button class="map-btn" onclick="openHistoryMapPage()">가본 캠핑장</button>
+  <!-- 버튼 2개를 세로 정렬 -->
+  <div class="button-column">
+    <button class="notice-btn" onclick="openExtraPage()">예약 사이트 오픈일정</button>
+    <button class="map-btn" onclick="openHistoryMapPage()">가본 캠핑장</button>
+  </div>
 </div>
-
+  
 <!-- 🔒 비밀번호 보호된 공지 -->
 <div class="notice" id="secretNotice" style="display:none; white-space:pre-line; text-align:left;">
   ❤️127번째❤️■ 무창포 오토 캠핑장
@@ -700,6 +710,7 @@ function openHistoryMapPage() {
 
 </body>
 </html>
+
 
 
 
