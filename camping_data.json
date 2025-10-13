@@ -1,5 +1,14 @@
 {
   "camps": [
+     {
+      "id": 0,
+      "name": "청춘별곡캠핑장",
+      "description": "경남 진주시 금산면 금산순환로587번길 113<br>8주뒤 하루씩, 오픈시간 미정 <br>예약후 24시간이내 입급<br>14시 입실, 12시 퇴실",
+      "reservationUrl": "https://m.place.naver.com/accommodation/1612882154/room?businessCategory=camping",
+      "weatherUrl": "https://www.windy.com/35.206/128.154?31.541,128.145,5",
+      "weatherUrl2": "https://weather.naver.com/today/03170410",
+      "mapImage": "map-a.jpg"
+    },
     {
       "id": 11,
       "name": "고래불국민야영장",
@@ -111,6 +120,7 @@
     }
   ]
 }
+
 
 
 
