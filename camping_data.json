@@ -7,7 +7,7 @@
       "reservationUrl": "https://m.place.naver.com/accommodation/1612882154/room?businessCategory=camping",
       "weatherUrl": "https://www.windy.com/35.206/128.154?31.541,128.145,5",
       "weatherUrl2": "https://weather.naver.com/today/03170410",
-      "mapImage": "map-a.jpg"
+      "mapImage": "map-j.jpg"
     },
     {
       "id": 11,
@@ -120,6 +120,7 @@
     }
   ]
 }
+
 
 
 
