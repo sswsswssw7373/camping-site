@@ -11,6 +11,15 @@
     },
     {
       "id": 11,
+      "name": "위천수변테마공원",
+      "description": "대구광역시 군위군 효령면 간동유원지길 8<br>한달뒤 하루씩 오픈<br>예약후 즉시 결재<br>14시 입실, 12시 퇴실",
+      "reservationUrl": "https://wcpark.gunwi.go.kr/page/reservation",
+      "weatherUrl": "https://www.windy.com/35.800/129.478?32.176,129.463,5",
+      "weatherUrl2":"https://weather.naver.com/today/06720320",
+      "mapImage": "map-m.jpg"
+    },
+    {
+      "id": 11,
       "name": "고래불국민야영장",
       "description": "경상북도 영덕군 병곡면 고래불로 68<br>한달뒤 하루씩 오전 10시 오픈<br>예약후 24시간이내 입급<br>14시 입실, 13시 퇴실",
       "reservationUrl": "https://stay.yd.go.kr/pages/sub.htm?nav_code=gor1501675800",
@@ -28,7 +37,7 @@
       "mapImage": "map-m.jpg"
     },
     {
-      "id": 1,
+      "id": 0,
       "name": "펀펀오토캠핑장",
       "description": "경북 상주시 화서면 문장로 425-5<br>한달뒤 하루씩 자정 오픈<br>예약후 12시간내 입급<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://www.xn--vk5bo1af7m09cs0ca273a.com/camping/reserve.html?pid=25",
@@ -120,6 +129,7 @@
     }
   ]
 }
+
 
 
 
