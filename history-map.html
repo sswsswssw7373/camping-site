@@ -27,6 +27,18 @@
     height: calc(100vh - 60px); /* 상단 제목 높이만큼 제외 */
     width: 100%;
   }
+
+       /* 원 상단 라벨 스타일 */
+    .circle-label {
+      background: transparent;  /* 배경 투명 */
+      padding: 3px 8px;
+      border-radius: 0;
+      font-size: 13px;
+      font-weight: bold;
+      color: red;               /* 글씨 빨간색 */
+      border: none;
+      text-align: center;
+    } 
 </style>
 </head>
 <body>
@@ -97,8 +109,55 @@
         .bindPopup(`<b>${p.name}</b>`)
         .bindTooltip(p.name, { permanent: true, direction: "top", offset: [0, -10] });
     });
+        // 중심 좌표
+    const center = [36.1239, 128.3440];
+
+    // 공통 원 옵션
+    const circleOptions = { color: 'orange', weight: 2, dashArray: '6 6', fill: false };
+    const radii = [50000, 100000, 150000]; // 50/100/150 km
+    const circles = [];
+
+    // 지구 반지름
+    const R = 6371e3;
+    const rad2deg = 180 / Math.PI;
+
+    // 각도 기반 이동 함수 (distance: m, angle: deg)
+    function moveAtAngle(lat, lng, distanceMeters, angleDeg) {
+      const angleRad = angleDeg * Math.PI / 180;
+      const deltaLat = (distanceMeters * Math.cos(angleRad)) / R;
+      const deltaLng = (distanceMeters * Math.sin(angleRad)) / (R * Math.cos(lat * Math.PI / 180));
+      return [lat + deltaLat * rad2deg, lng + deltaLng * rad2deg];
+    }
+
+    // 원과 라벨 생성 (2시 방향 = 30°)
+    radii.forEach(r => {
+      // 원 생성
+      const circle = L.circle(center, { ...circleOptions, radius: r })
+        .addTo(map)
+        .bindPopup(`반경 ${r/1000} km`);
+      circles.push(circle);
+
+      // 라벨 생성 (2시 방향)
+      const labelPos = moveAtAngle(center[0], center[1], r, 30);
+      L.marker(labelPos, {
+        icon: L.divIcon({
+          className: 'circle-label',
+          html: `<b>${r/1000} km</b>`,
+          iconSize: [60, 20],
+          iconAnchor: [30, 10]
+        })
+      }).addTo(map);
+    });
+
+    // 원 그룹화해서 토글 가능
+    const radiiLayer = L.layerGroup(circles).addTo(map);
+    L.control.layers(null, { '반경 50/100/150km': radiiLayer }, { collapsed: false }).addTo(map);
+
+    // (선택) 150km 원이 화면에 모두 보이도록 지도 맞춤
+    // map.fitBounds(circles[2].getBounds());
   </script>
 </body>
 </html>
+
 
 
