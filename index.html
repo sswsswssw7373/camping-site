@@ -564,8 +564,13 @@ function renderCamps() {
   }
 
   // id 기준으로 정렬 (작은 숫자 → 큰 숫자)
-  const sortedCamps = [...campingData.camps].sort((a, b) => a.id - b.id);
-
+  //const sortedCamps = [...campingData.camps].sort((a, b) => a.id - b.id);
+const sortedCamps = [...campingData.camps].sort((a, b) => {
+  if (a.id === b.id) {
+    return a.name.localeCompare(b.name, 'ko'); // 이름순 (한글/영문 모두 정상)
+  }
+  return a.id - b.id; // 기본은 id 오름차순
+});
   const campsHTML = sortedCamps.map(camp => createCampCard(camp)).join('');
   campList.innerHTML = campsHTML;
 }
@@ -708,6 +713,7 @@ function openHistoryMapPage() {
 
 </body>
 </html>
+
 
 
 
