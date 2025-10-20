@@ -1,7 +1,7 @@
 {
   "camps": [
      {
-      "id": 0,
+      "id": 1,
       "name": "청춘별곡캠핑장",
       "description": "경남 진주시 금산면 금산순환로587번길 113<br>8주뒤 하루씩, 오픈시간 미정 <br>예약후 24시간이내 입급<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://m.place.naver.com/accommodation/1612882154/room?businessCategory=camping",
@@ -10,7 +10,7 @@
       "mapImage": "map-j.jpg"
     },
     {
-      "id": 11,
+      "id": 1,
       "name": "위천수변테마공원",
       "description": "대구광역시 군위군 효령면 간동유원지길 8<br>한달뒤 하루씩 오픈<br>예약후 즉시 결재<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://wcpark.gunwi.go.kr/page/reservation",
@@ -129,6 +129,7 @@
     }
   ]
 }
+
 
 
 
