@@ -73,7 +73,7 @@
       "mapImage": "map-d.gif"
     },
     {
-      "id": 1,
+      "id": 0,
       "name": "전투전승기념공원 캠핑장",
       "description": "대구광역시 군위군 삼국유사면 동부로 81<br>2달씩 오픈이라는데 명확하지 않음<br>예약후 24시간 이내 입금, 전기떨어짐<br>13시입실, 12시 퇴실",
       "reservationUrl": "http://gwp.hana-pnc.co.kr/yeyak",
@@ -129,6 +129,7 @@
     }
   ]
 }
+
 
 
 
