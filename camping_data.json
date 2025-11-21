@@ -34,7 +34,7 @@
       "reservationUrl": "http://njcamping.or.kr/main/",
       "weatherUrl": "https://www.windy.com/35.800/129.478?32.176,129.463,5",
       "weatherUrl2":"https://weather.naver.com/today/04130250",
-      "mapImage": "map-m.jpg"
+      "mapImage": "map-n.png"
     },
     {
       "id": 1,
@@ -129,6 +129,7 @@
     }
   ]
 }
+
 
 
 
