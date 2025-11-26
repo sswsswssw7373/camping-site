@@ -1,7 +1,7 @@
 {
   "camps": [
      {
-      "id": 1,
+      "id": 0,
       "name": "The360 ",
       "description": "경상북도 고령군 덕곡면 용흥리 산 1<br>8주뒤 하루씩, 09시 오픈 <br>예약후 ??시간이내 입급<br>14시 입실, 12시 퇴실",
       "reservationUrl": "https://the360.co.kr/reservation/room_list.php",
@@ -138,6 +138,7 @@
     }
   ]
 }
+
 
 
 
