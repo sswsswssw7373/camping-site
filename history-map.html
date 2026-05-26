@@ -153,7 +153,7 @@
 
     // 원 그룹화해서 토글 가능
     const radiiLayer = L.layerGroup(circles).addTo(map);
-    L.control.layers(null, { '반경 50/100/150km': radiiLayer }, { collapsed: false }).addTo(map);
+    L.control.layers(null, { '반경 50/100/150/200km': radiiLayer }, { collapsed: false }).addTo(map);
 
     // (선택) 150km 원이 화면에 모두 보이도록 지도 맞춤
     // map.fitBounds(circles[2].getBounds());
