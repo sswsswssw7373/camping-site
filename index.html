@@ -361,21 +361,12 @@ h1 {
 <div id="camp-list" class="camp-list">
   <!-- 캠핑장 데이터가 JavaScript로 동적 생성됩니다 -->
 </div>
-<!-- 지도 모달: 배치도 2장 동시 표시 -->
+
+<!-- 지도 모달 -->
 <div id="mapModal" class="modal">
-  <div class="modal-content" style="max-width:95%; max-height:90%;">
-    <h2>캠핑장 배치도</h2>
-
-    <div id="mapImages"
-         style="display:flex; gap:15px; justify-content:center;
-                align-items:flex-start; flex-wrap:wrap;">
-      <img id="mapImage1" src="" alt="배치도 1"
-           style="max-width:48%; max-height:70vh; object-fit:contain;">
-
-      <img id="mapImage2" src="" alt="배치도 2"
-           style="max-width:48%; max-height:70vh; object-fit:contain;">
-    </div>
-
+  <div class="modal-content">
+    <img id="mapImage" src="" alt="캠핑장 지도">
+    <br>
     <button class="close-btn" onclick="closeMap()">닫기</button>
   </div>
 </div>
@@ -511,10 +502,7 @@ function createCampCard(camp) {
           ${camp.description}
         </div>
         <a href="${camp.reservationUrl}" target="_blank">예약 사이트</a>
-        <button onclick="openMap(
-  '${camp.mapImage || ""}',
-  '${camp.mapImage2 || ""}'
-)">배치도 보기</button>
+        <button onclick="openMap('${camp.mapImage}')">배치도 보기</button>
         <div style="display:flex; gap:6px; justify-content:center;">
           <a href="${weatherLink1}" target="_blank" class="weather-btn" style="flex:1;">날씨(윈디)</a>
           ${weatherLink2 ? `<a href="${weatherLink2}" target="_blank" class="weather-btn" style="flex:1; background:#00b894;">날씨 (네이버)</a>` : ''}
@@ -585,17 +573,8 @@ function toggleInfo(button) {
 }
 
 // 지도 모달 열기
-// 배치도 1~2장 동시 표시
-function openMap(imgSrc, imgSrc2) {
-  const img1 = document.getElementById("mapImage1");
-  const img2 = document.getElementById("mapImage2");
-
-  img1.src = imgSrc || "";
-  img1.style.display = imgSrc ? "block" : "none";
-
-  img2.src = imgSrc2 || "";
-  img2.style.display = imgSrc2 ? "block" : "none";
-
+function openMap(imgSrc) {
+  document.getElementById("mapImage").src = imgSrc;
   document.getElementById("mapModal").style.display = "flex";
 }
 
